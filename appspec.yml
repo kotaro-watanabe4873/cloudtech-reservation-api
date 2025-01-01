@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: cloudtech-reservation-api-task
+        LoadBalancerInfo:
+          ContainerName: "api-server"
+          ContainerPort: "80"

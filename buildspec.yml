@@ -12,8 +12,8 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t cloudtech-reservation-api-container .
-      - docker tag cloudtech-reservation-api-container:latest ${ECR_REPOSITORY}:latest
+      - docker build -t api-server .
+      - docker tag api-server:latest ${ECR_REPOSITORY}:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
@@ -23,7 +23,7 @@ phases:
       - |
         echo '[
           {
-            "name": "cloudtech-reservation-api-container",
+            "name": "api-server",
             "imageUri": "'${ECR_REPOSITORY}':latest"
           }
         ]' > imagedefinitions.json
@@ -31,4 +31,7 @@ phases:
 
 artifacts:
   files:
-    - imagedefinitions.json
+    # - imagedefinitions.json
+    - appspec.yml
+    - taskdef.json
+    - imageDetail.json
