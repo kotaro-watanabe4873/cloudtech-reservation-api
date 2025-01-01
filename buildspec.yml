@@ -12,8 +12,8 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t cloudtech-reservation-api-task-sprint10 .
-      - docker tag cloudtech-reservation-api-task-sprint10:latest ${ECR_REPOSITORY}:latest
+      - docker build -t cloudtech-reservation-api-container .
+      - docker tag cloudtech-reservation-api-container:latest ${ECR_REPOSITORY}:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
@@ -23,7 +23,7 @@ phases:
       - |
         echo '[
           {
-            "name": "cloudtech-reservation-api-task-sprint10",
+            "name": "cloudtech-reservation-api-container",
             "imageUri": "'${ECR_REPOSITORY}':latest"
           }
         ]' > imagedefinitions.json
