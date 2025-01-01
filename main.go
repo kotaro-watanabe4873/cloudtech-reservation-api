@@ -17,6 +17,7 @@ func init() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
+	// test
 	// CORSヘッダーを設定
 	w.Header().Set("Access-Control-Allow-Origin", "*")             // すべてのオリジンからのアクセスを許可
 	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS") // GETとOPTIONSメソッドを許可
